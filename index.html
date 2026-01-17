@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ร้านดอกไม้</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <div class="top-row">
+                <div class="logo">โลโก้ร้าน</div>
+                
+                <div class="contact-info" id="mobileStickyFooter">
+                    <button class="btn-contact btn-phone">
+                        <span class="icon">📞</span> เบอร์โทรร้าน
+                    </button>
+                    <button class="btn-contact btn-line">
+                        <span class="icon">💬</span> ไลน์ร้าน กดสั่ง
+                    </button>
+                </div>
+            </div>
+
+            <nav class="nav-menu">
+                <a href="#">พวงหรีด</a>
+                <span>|</span>
+                <a href="#">วิธีการสั่งซื้อ</a>
+            </nav>
+
+            <div class="promo-banner">
+                ข้อความที่จะดึงดูดลูกค้า
+            </div>
+        </header>
+
+        <section class="showcase-section">
+            <h2>ลูกค้าสนใจดอกไม้เรา</h2>
+            <div class="showcase-grid">
+                <div class="showcase-item">ตัวอย่างรูปดอกไม้ที่อยากโชว์ 1</div>
+                <div class="showcase-item">ตัวอย่างรูปดอกไม้ที่อยากโชว์ 2</div>
+            </div>
+        </section>
+
+        <section class="info-bar">
+            <div class="info-col">แนะนำลูกค้า</div>
+            <div class="info-col">สมาชิกอะไรบ้าง</div>
+            <div class="info-col">ลูกค้าได้อะไรบ้าง</div>
+        </section>
+
+        <section class="product-section">
+            <h3>สินค้าแนะนำ</h3>
+            
+            <div class="product-grid" id="product-list">
+                <p style="width:100%; text-align:center;">กำลังโหลดสินค้า...</p>
+            </div>
+        </section>
+    </div>
+
+    <div id="productModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+            
+            <div class="modal-body">
+                <div class="modal-left">
+                    <img id="modal-img" src="" alt="สินค้า">
+                </div>
+                
+                <div class="modal-right">
+                    
+                    <div class="modal-tabs">
+                        <button class="tab-btn active" onclick="switchTab('details')" id="btn-tab-details">รายละเอียด</button>
+                        <button class="tab-btn" onclick="switchTab('order')" id="btn-tab-order">วิธีการสั่งซื้อ</button>
+                    </div>
+
+                    <div id="view-details" class="tab-content">
+                        <h2 id="modal-name">ชื่อสินค้า</h2>
+                        <p class="modal-price" id="modal-price">ราคา</p>
+                        <hr>
+                        <p class="modal-desc">
+                            รายละเอียดสินค้าเพิ่มเติม: <br>
+                            ดอกไม้สดใหม่ จัดส่งรวดเร็ว สวยงามตามความต้องการ<br>
+                            (คุณสามารถเพิ่มคอลัมน์รายละเอียดใน Google Sheet เพื่อดึงข้อมูลจริงมาแสดงได้)
+                        </p>
+                        <div class="modal-actions">
+                             <button class="btn-action btn-confirm-buy">สั่งซื้อทันที</button>
+                        </div>
+                    </div>
+
+                    <div id="view-order" class="tab-content" style="display: none;">
+                        <h3>ขั้นตอนการสั่งซื้อ</h3>
+                        <ul class="order-steps">
+                            <li>1. แคปภาพสินค้านี้</li>
+                            <li>2. แอดไลน์ร้าน <span style="color:#06C755; font-weight:bold;">@yourid</span></li>
+                            <li>3. ส่งรูปภาพและแจ้งวันที่ต้องการใช้</li>
+                            <li>4. ชำระเงินผ่านบัญชีธนาคาร</li>
+                        </ul>
+                        <div class="bank-info">
+                            <p>🏦 <strong>ธนาคารกสิกรไทย</strong></p>
+                            <p>เลขบัญชี: 123-4-56789-0</p>
+                            <p>ชื่อบัญชี: ร้านดอกไม้</p>
+                        </div>
+                        <div class="modal-actions">
+                            <button class="btn-action btn-line" style="width:100%">
+                                แอดไลน์แจ้งโอน
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
