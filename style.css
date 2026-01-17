@@ -141,6 +141,7 @@ header {
 .product-section { text-align: left; padding: 10px; }
 .product-section h3 { color: #4E342E; }
 
+/* Grid ปกติสำหรับ Desktop */
 .product-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); 
@@ -154,7 +155,7 @@ header {
     border-radius: 15px;
     box-shadow: 0 4px 10px rgba(0,0,0,0.05);
     overflow: hidden;
-    height: 380px;
+    height: 380px; /* ความสูง Desktop */
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -207,6 +208,7 @@ header {
     font-family: 'Kanit', sans-serif;
     color: #6D4C41;
     transition: all 0.2s;
+    font-size: 0.95rem; /* ปรับขนาดฟอนต์ปุ่มให้พอดี */
 }
 
 .btn-action:hover {
@@ -222,8 +224,37 @@ header {
     .top-row, .showcase-grid, .info-bar { flex-direction: column; }
     .logo, .showcase-item, .info-col { width: 100%; margin-bottom: 15px; }
     
-    .product-grid { gap: 15px; }
+    /* [แก้ไข] บังคับให้เป็น 2 คอลัมน์ในมือถือ */
+    .product-grid { 
+        grid-template-columns: repeat(2, 1fr); /* 1 แถว มี 2 คอลัมน์ */
+        gap: 10px; /* ลดช่องว่างระหว่างกล่อง */
+        padding: 5px;
+    }
 
+    /* ปรับขนาดการ์ดในมือถือให้พอดี */
+    .product-card {
+        height: auto;
+        min-height: 280px;
+    }
+
+    /* ลดความสูงรูปในมือถือ */
+    .product-img-real {
+        height: 140px; 
+    }
+
+    /* ปุ่มกดซ้อนกันเป็นแนวตั้ง เพื่อแก้ปัญหาปุ่มเบียด */
+    .product-actions {
+        flex-direction: column; 
+        gap: 5px;
+        padding: 10px;
+    }
+    
+    /* ปรับขนาดตัวอักษรให้เล็กลงนิดหน่อยในมือถือ */
+    .product-card h4 { font-size: 1rem; }
+    .product-card .price { font-size: 1rem; }
+    .btn-action { font-size: 0.9rem; height: 35px; }
+
+    /* Footer เด้ง */
     .contact-info {
         position: fixed;
         bottom: 0;
@@ -246,7 +277,7 @@ header {
 }
 
 /* ==========================================
-   CSS สำหรับ Modal (กล่องรายละเอียด)
+   CSS สำหรับ Modal (เหมือนเดิม)
    ========================================== */
 .modal {
     display: none; 
@@ -319,7 +350,7 @@ header {
     min-width: 300px;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start; /* เปลี่ยนเป็นบนลงล่าง */
+    justify-content: flex-start;
 }
 
 .modal-right h2 {
@@ -352,7 +383,7 @@ header {
     background-color: #4E342E;
 }
 
-/* --- ส่วนของ Tabs --- */
+/* Tabs */
 .modal-tabs {
     display: flex;
     border-bottom: 2px solid #EFEBE9;

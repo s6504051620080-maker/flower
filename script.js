@@ -52,9 +52,7 @@ async function fetchProducts() {
     }
 }
 
-// เรียกใช้ฟังก์ชันทันทีที่เปิดเว็บ
 fetchProducts();
-
 
 // ==========================================
 // ส่วนที่ 3: ฟังก์ชันเกี่ยวกับ Modal (Popup) & Tabs
@@ -71,7 +69,7 @@ function openModal(index) {
     document.getElementById('modal-name').innerText = product.name;
     document.getElementById('modal-price').innerText = product.price + " บาท";
 
-    // รีเซ็ตให้กลับมาหน้า "รายละเอียด" ทุกครั้งที่เปิด
+    // รีเซ็ตให้กลับมาหน้า "รายละเอียด"
     switchTab('details');
     
     // แสดง Modal
@@ -110,9 +108,8 @@ window.onclick = function(event) {
     }
 }
 
-
 // ==========================================
-// ส่วนที่ 4: Sticky Footer (ปุ่มเด้งในมือถือ)
+// ส่วนที่ 4: Sticky Footer
 // ==========================================
 let lastScrollTop = 0;
 const footer = document.getElementById('mobileStickyFooter');
