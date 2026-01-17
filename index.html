@@ -27,39 +27,98 @@
                     </button>
                 </div>
             </div>
+            </header>
 
             <nav class="nav-menu">
-                <a href="#">พวงหรีด</a>
+                <a href="javascript:void(0)" onclick="switchPage('home')" id="nav-home" class="active">พวงหรีด</a>
                 <span>|</span>
-                <a href="#">วิธีการสั่งซื้อ</a>
+                <a href="javascript:void(0)" onclick="switchPage('howto')" id="nav-howto">วิธีการสั่งซื้อ</a>
             </nav>
 
             <div class="promo-banner">
-                ข้อความที่จะดึงดูดลูกค้า
+                เพราะการบอกลาครั้งสุดท้ายมีความหมาย เราจึงคัดสรรดอกไม้เกรดพรีเมียม จัดแต่งอย่างประณีต เพื่อเป็นตัวแทนความรักและความเคารพของคุณ
             </div>
-        </header>
+        
 
-        <section class="showcase-section">
+        <div id="page-home">
+            <section class="showcase-section">
             <h2>ลูกค้าสนใจดอกไม้เรา</h2>
-            <div class="showcase-grid">
-                <div class="showcase-item">ตัวอย่างรูปดอกไม้ที่อยากโชว์ 1</div>
-                <div class="showcase-item">ตัวอย่างรูปดอกไม้ที่อยากโชว์ 2</div>
-            </div>
-        </section>
-
-        <section class="info-bar">
-            <div class="info-col">แนะนำลูกค้า</div>
-            <div class="info-col">สมาชิกอะไรบ้าง</div>
-            <div class="info-col">ลูกค้าได้อะไรบ้าง</div>
-        </section>
-
-        <section class="product-section">
-            <h3>สินค้าแนะนำ</h3>
             
-            <div class="product-grid" id="product-list">
-                <p style="width:100%; text-align:center;">กำลังโหลดสินค้า...</p>
+            <div class="slider-frame">
+                <div class="slider-wrapper">
+                    
+                    <div class="slide-item">
+                        <img src="https://img5.pic.in.th/file/secure-sv1/RF-156-1.png" alt="รีวิว 1">
+                    </div>
+                    <div class="slide-item">
+                        <img src="https://img2.pic.in.th/RF-153-1-1.png" alt="รีวิว 2">
+                    </div>
+                    <div class="slide-item">
+                        <img src="https://img5.pic.in.th/file/secure-sv1/RF-156-1.png" alt="รีวิว 3">
+                    </div>
+                    <div class="slide-item">
+                        <img src="https://img5.pic.in.th/file/secure-sv1/RF-156-1.png" alt="รีวิว 4">
+                    </div>
+                    
+                    <div class="slide-item">
+                        <img src="https://img2.pic.in.th/RF-153-1-1.png" alt="รีวิว 5">
+                    </div>
+
+                </div>
             </div>
         </section>
+
+            <section class="info-bar">
+                <div class="info-col">มีเจ้าหน้าที่คอยให้คำปรึกษา</div>
+                <div class="info-col">ส่งไว ส่งเร็ว รวดเร็วทันใจ</div>
+                <div class="info-col">รับประกันสินค้าหากเกิดความเสียหาย</div>
+            </section>
+
+            <section class="product-section">
+                <h3>สินค้าแนะนำ</h3>
+                
+                <div class="product-grid" id="product-list">
+                    <p style="width:100%; text-align:center;">กำลังโหลดสินค้า...</p>
+                </div>
+            </section>
+        </div>
+
+        <div id="page-howto" style="display: none;">
+            <section class="howto-section-main">
+                <h3>ขั้นตอนการสั่งซื้อสินค้า</h3>
+                
+                <div class="howto-container">
+                    <ul class="main-steps">
+                        <li>
+                            <div class="step-badge">1</div>
+                            <div class="step-desc">เลือกแบบพวงหรีดที่ต้องการ และแคปภาพหน้าจอไว้</div>
+                        </li>
+                        <li>
+                            <div class="step-badge">2</div>
+                            <div class="step-desc">แอดไลน์ร้าน <span style="color:#06C755; font-weight:bold;">@yourid</span> หรือกดปุ่มไลน์ด้านบน</div>
+                        </li>
+                        <li>
+                            <div class="step-badge">3</div>
+                            <div class="step-desc">ส่งรูปภาพ แจ้งชื่อผู้เสีย วันที่ เวลา และวัดที่จัดส่ง</div>
+                        </li>
+                        <li>
+                            <div class="step-badge">4</div>
+                            <div class="step-desc">ทางร้านสรุปยอด ลูกค้าชำระเงินผ่านบัญชีธนาคาร</div>
+                        </li>
+                    </ul>
+
+                    <div class="main-bank-info">
+                        <h4>🏦 ช่องทางการชำระเงิน</h4>
+                        <div class="bank-box">
+                            <p style="font-size: 1.2rem; font-weight:bold;">ธนาคารกสิกรไทย</p>
+                            <p class="acc-number">123-4-56789-0</p>
+                            <p>ชื่อบัญชี: ร้านดอกไม้</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
     </div>
 
     <div id="productModal" class="modal">
