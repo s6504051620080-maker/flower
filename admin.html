@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>หลังบ้าน - เพิ่มสินค้า</title>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        body { 
+            font-family: 'Kanit', sans-serif; 
+            background-color: #f4f4f4; 
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            height: 100vh; 
+            margin: 0; 
+        }
+        .admin-box {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+        }
+        h2 { color: #6D4C41; margin-bottom: 20px; }
+        input {
+            width: 100%;
+            padding: 12px;
+            margin: 8px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-sizing: border-box;
+            font-family: 'Kanit', sans-serif;
+        }
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: #6D4C41;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            margin-top: 10px;
+            font-family: 'Kanit', sans-serif;
+        }
+        button:hover { background-color: #5D4037; }
+        .status { margin-top: 15px; font-size: 0.9rem; }
+        .success { color: green; }
+        .error { color: red; }
+    </style>
+</head>
+<body>
+
+    <div class="admin-box">
+        <h2>🌸 เพิ่มสินค้าใหม่</h2>
+        <form id="productForm">
+            <input type="text" name="id" placeholder="รหัสสินค้า (เช่น P-001)" required>
+            
+            <input type="text" name="name" placeholder="ชื่อสินค้า (เช่น ช่อกุหลาบ)" required>
+            <input type="number" name="price" placeholder="ราคา (ตัวเลขเท่านั้น)" required>
+            <input type="url" name="image" placeholder="ลิงก์รูปภาพ (URL)" required>
+            
+            <button type="submit" id="submitBtn">บันทึกสินค้า</button>
+        </form>
+        <div id="statusMessage" class="status"></div>
+        <br>
+        <a href="index.html" style="color: #999; text-decoration: none; font-size: 0.8rem;">กลับไปหน้าร้าน</a>
+    </div>
+
+    <script>
+        // ----------------------------------------------------
+        // ใส่ URL Web App ของคุณที่นี่ (อันเดิมได้เลยไม่ต้อง Deploy ใหม่)
+        // ----------------------------------------------------
+        const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbyxMxOiXj40tCHf6ewv7CaNp0i56Sro0wYe8WVtT3WfY92xaCf2YqobfShs6UMsvb4yTQ/exec"; 
+
+        const form = document.getElementById('productForm');
+        const statusMsg = document.getElementById('statusMessage');
+        const btn = document.getElementById('submitBtn');
+
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            btn.disabled = true;
+            btn.innerText = "กำลังส่งข้อมูล...";
+            statusMsg.innerText = "";
+
+            const formData = new FormData(form);
+
+            fetch(WEB_APP_URL, {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => {
+                statusMsg.className = "status success";
+                statusMsg.innerText = "✅ บันทึกสำเร็จ! ข้อมูลเข้า Sheet แล้ว";
+                form.reset(); // ล้างช่องกรอก
+                btn.disabled = false;
+                btn.innerText = "บันทึกสินค้า";
+            })
+            .catch(error => {
+                statusMsg.className = "status error";
+                statusMsg.innerText = "❌ เกิดข้อผิดพลาด! ลองใหม่อีกครั้ง";
+                console.error(error);
+                btn.disabled = false;
+                btn.innerText = "บันทึกสินค้า";
+            });
+        });
+    </script>
+
+</body>
+</html>

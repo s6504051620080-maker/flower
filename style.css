@@ -2,15 +2,15 @@
    1. ตั้งค่าพื้นฐาน (Body & Container)
    ========================================== */
 body {
-    font-family: 'Kanit', sans-serif;
+    font-family: 'Maitree', serif;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     text-align: center;
-    background-color: #F5EED8; 
+    background-color: #F9F5EB; /* สีครีมอุ่นๆ ดูแพง */
     padding-top: 140px; 
     padding-bottom: 0;
-    color: #6D4C41; 
+    color: #5D4037; 
 }
 
 .container {
@@ -19,238 +19,249 @@ body {
     margin: 0;
     padding: 20px;
     box-sizing: border-box;
-    border: 1px dashed rgba(109, 76, 65, 0.3);
-    border-top: none; 
+    border: none;
 }
 
 /* ==========================================
-   2. ส่วนหัว (Header) - เพิ่มลายดอกไม้สีทอง
+   2. ส่วนหัว (Header) - หรูหรา
    ========================================== */
 header {
     position: fixed; top: 0; left: 0; width: 100%; z-index: 1000; 
-    
-    /* พื้นหลังสีเข้มเดิม */
     background-color: #171B0E; 
-
-    /* --- เพิ่ม: ลวดลายดอกไม้สีทอง (Golden Floral Pattern) โดยใช้ CSS Gradient --- */
-    background-image: 
-        /* จุดเกสรตรงกลาง (สีทองเข้ม) */
-        radial-gradient(circle at 50% 50%, rgba(212, 175, 55, 0.35) 0%, rgba(212, 175, 55, 0.35) 10%, transparent 11%),
-        /* กลีบดอกไม้ 4 ทิศ (สีทองจางๆ) */
-        radial-gradient(circle at 0 0, rgba(212, 175, 55, 0.15) 0%, rgba(212, 175, 55, 0.15) 25%, transparent 26%),
-        radial-gradient(circle at 100% 0, rgba(212, 175, 55, 0.15) 0%, rgba(212, 175, 55, 0.15) 25%, transparent 26%),
-        radial-gradient(circle at 0 100%, rgba(212, 175, 55, 0.15) 0%, rgba(212, 175, 55, 0.15) 25%, transparent 26%),
-        radial-gradient(circle at 100% 100%, rgba(212, 175, 55, 0.15) 0%, rgba(212, 175, 55, 0.15) 25%, transparent 26%);
-    
-    /* ขนาดของลายดอกไม้ (ปรับเลขนี้เพื่อขยาย/ย่อลาย) */
-    background-size: 36px 36px; 
-    /* ---------------------------------------------------- */
-
-    padding-top: 10px; padding-bottom: 10px; margin-bottom: 0;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1); 
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1600 400' preserveAspectRatio='none'%3E%3Cdefs%3E%3ClinearGradient id='gold-line' x1='0%25' y1='0%25' x2='100%25' y2='0%25'%3E%3Cstop offset='0%25' stop-color='%238B6914' stop-opacity='0'/%3E%3Cstop offset='50%25' stop-color='%23D4AF37' stop-opacity='0.6'/%3E%3Cstop offset='100%25' stop-color='%238B6914' stop-opacity='0'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cg fill='none' stroke='url(%23gold-line)' stroke-width='0.8' opacity='0.8'%3E%3Cpath d='M0,200 C200,50 400,350 600,200 C800,50 1000,350 1200,200 C1400,50 1600,350 1800,200'/%3E%3Cpath d='M0,210 C210,60 410,360 610,210 C810,60 1010,360 1210,210 C1410,60 1610,360 1810,210'/%3E%3Cpath d='M0,190 C190,40 390,340 590,190 C790,40 990,340 1190,190 C1390,40 1590,340 1790,190'/%3E%3Cpath d='M0,220 C220,70 420,370 620,220 C820,70 1020,370 1220,220'/%3E%3Cpath d='M0,180 C180,30 380,330 580,180 C780,30 980,330 1180,180'/%3E%3Cpath d='M-200,100 Q200,500 600,100 T1400,100' opacity='0.3' stroke-width='1.5'/%3E%3Cpath d='M-180,110 Q220,510 620,110 T1420,110' opacity='0.2' stroke-width='1.5'/%3E%3C/g%3E%3C/svg%3E");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding-top: 15px; padding-bottom: 15px; margin-bottom: 0;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+    border-bottom: 1px solid rgba(212, 175, 55, 0.4);
 }
 
 .top-row {
     display: flex; justify-content: space-between; align-items: center; gap: 20px;
-    width: 100%; max-width: none; margin: 0;
-    padding-left: 30px; padding-right: 30px; box-sizing: border-box;
+    width: 100%; max-width: 1200px; margin: 0 auto;
+    padding-left: 20px; padding-right: 20px; box-sizing: border-box;
 }
 
+/* [แก้ไข] โลโก้รูปภาพ */
 .logo {
-    width: 160px; height: 90px;
-    background-color: #ffffff; border: 2px solid #6D4C41;
-    display: flex; align-items: center; justify-content: center;
-    font-weight: 600; color: #6D4C41; 
+    height: 90px;
+    display: flex; align-items: center; justify-content: flex-start;
+    padding: 5px 0; overflow: hidden;
+}
+.logo img {
+    height: 200%; width: auto; object-fit: contain;
+    border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.3);
 }
 
 .contact-info {
-    width: auto; min-width: 180px;
+    width: auto; min-width: 200px;
     display: flex; flex-direction: column; gap: 10px;
 }
 
+/* [แก้ไข] ปุ่มกดโทร/ไลน์ */
 .btn-contact {
-    border: none; border-radius: 50px; padding: 10px 20px; margin: 0;
+    border: none; border-radius: 6px; padding: 0 20px; margin: 0;
     display: flex; align-items: center; justify-content: center;
-    min-height: 45px; font-size: 1rem; font-weight: 600;
-    cursor: pointer; width: 100%; box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-    text-decoration: none; color: white; transition: transform 0.2s;
+    min-height: 42px; 
+    box-sizing: border-box; /* สำคัญ: คุมขนาดไม่ให้บวม */
+    font-family: 'Maitree', serif; font-size: 1rem; font-weight: 600;
+    cursor: pointer; width: 100%; 
+    text-decoration: none; color: white; 
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
 }
+.btn-contact:hover { transform: translateY(-2px); box-shadow: 0 6px 12px rgba(0,0,0,0.3); }
 .btn-contact:active { transform: scale(0.98); }
-.btn-phone { background-color: #4E342E; }
-.btn-line { background-color: #06C755; }
-.icon { margin-right: 8px; font-size: 1.2rem; }
+
+.btn-phone { background: linear-gradient(135deg, #A99C8E, #8D7B68); }
+.btn-line { background: linear-gradient(135deg, #00C300, #00A500); }
+.icon { margin-right: 10px; font-size: 1.2rem; }
 
 /* ==========================================
    3. เมนูและแบนเนอร์
    ========================================== */
 .nav-menu {
-    display: flex; justify-content: center; gap: 30px; margin: 10px 0;
-    border-top: 1px solid rgba(109, 76, 65, 0.4);
-    border-bottom: 1px solid rgba(109, 76, 65, 0.4);
-    padding: 15px; font-size: 1.2rem; background-color: rgba(255,255,255,0.5);
+    display: flex; justify-content: center; gap: 40px; margin: 0;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+    padding: 15px; font-size: 1.1rem; background-color: #ffffff;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
 }
 .nav-menu a {
-    text-decoration: none; color: #5D4037; font-weight: 600;
-    padding-bottom: 5px; border-bottom: 3px solid transparent; transition: all 0.3s;
+    text-decoration: none; color: #6D4C41; font-weight: 500;
+    padding-bottom: 5px; position: relative; transition: color 0.3s;
 }
-.nav-menu a.active { color: #4E342E; border-bottom: 3px solid #6D4C41; }
-.nav-menu a:hover { color: #8D6E63; }
+.nav-menu span { color: #ccc; }
+.nav-menu a::after {
+    content: ''; position: absolute; width: 0; height: 2px;
+    bottom: 0; left: 0; background-color: #D4AF37; transition: width 0.3s;
+}
+.nav-menu a:hover { color: #D4AF37; }
+.nav-menu a:hover::after, .nav-menu a.active::after { width: 100%; }
+.nav-menu a.active { color: #D4AF37; font-weight: 700; }
 
 .promo-banner {
-    background-color: #ffffff; padding: 15px; ;
-    font-weight: 600; font-size: 1.5rem; color: #8D6E63;
+    background-color: #fff; padding: 25px 20px;
+    font-weight: 500; font-size: 1.1rem; color: #6D4C41;
+    border-bottom: 1px solid #E0E0E0; line-height: 1.6;
 }
 
 /* ==========================================
-   4. สไลด์รูปภาพ
+   4. ตกแต่งหัวข้อ & สไลด์ (Seamless Loop + ขอบสวย)
    ========================================== */
-.showcase-section { margin: 30px 0; }
-.showcase-section h2 { font-weight: 600; color: #4E342E; margin-bottom: 20px; }
+h2, h3 {
+    color: #4E342E; font-weight: 700; margin-bottom: 30px;
+    position: relative; display: inline-block;
+}
+h2::after, h3::after {
+    content: ''; display: block; width: 60px; height: 3px;
+    background-color: #D4AF37; margin: 10px auto 0; border-radius: 2px;
+}
+
+.showcase-section { margin: 40px 0; }
 
 .slider-frame {
-    width: 100%; max-width: 800px; height: 400px; margin: 0 auto;
-    overflow: hidden; border: 2px solid #6D4C41; border-radius: 10px;
-    background-color: #fff; box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    width: 100%; max-width: 900px; height: 450px; margin: 0 auto;
+    overflow: hidden; 
+    border: 4px solid #fff; border-radius: 12px;
+    background-color: #fff; /* หรือ transparent ถ้าอยากได้ */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
 }
-.slider-wrapper {
-    width: 500%; height: 100%; display: flex; animation: slideOneByOne 16s infinite;
-}
-.slide-item { width: 20%; height: 100%; }
-.slide-item img { width: 100%; height: 100%; object-fit: cover; }
 
-@keyframes slideOneByOne {
-    0%, 20% { transform: translateX(0); }
-    25%, 45% { transform: translateX(-20%); }
-    50%, 70% { transform: translateX(-40%); }
-    75%, 95% { transform: translateX(-60%); }
-    100%     { transform: translateX(-80%); }
+.slider-wrapper {
+    width: 1000%; height: 100%; display: flex; 
+    animation: seamlessSlide 25s infinite linear; 
+}
+.slide-item { width: 10%; height: 100%; }
+.slide-item img { 
+    width: 100%; height: 100%; object-fit: cover; object-position: center; 
+}
+
+@keyframes seamlessSlide {
+    0%, 15%    { transform: translateX(0%); }   
+    20%, 35%   { transform: translateX(-10%); } 
+    40%, 55%   { transform: translateX(-20%); } 
+    60%, 75%   { transform: translateX(-30%); } 
+    80%, 95%   { transform: translateX(-40%); } 
+    100%       { transform: translateX(-50%); } 
 }
 
 /* ==========================================
-   5. ข้อมูลและสินค้า
+   5. ข้อมูลและสินค้า (การ์ดสวยงาม)
    ========================================== */
 .info-bar {
-    display: flex; justify-content: space-between;
-    border-top: 1px solid #6D4C41; border-bottom: 1px solid #6D4C41;
-    padding: 30px 0; margin: 30px 0;
+    display: flex; justify-content: center; gap: 50px;
+    background-color: #fff; padding: 40px 20px; margin: 40px 0;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.02);
 }
-.info-col { width: 33%; border-right: 1px solid #A1887F; font-size: 1.1rem; }
-.info-col:last-child { border-right: none; }
+.info-col { 
+    font-size: 1rem; color: #6D4C41; 
+    display: flex; align-items: center; gap: 10px;
+}
+.info-col::before { content: '✦'; color: #D4AF37; font-size: 1.2rem; }
 
-.product-section { text-align: left; padding: 10px; }
-.product-section h3 { color: #4E342E; }
+.product-section { padding: 20px; max-width: 1200px; margin: 0 auto; }
 
 .product-grid {
-    display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); 
-    gap: 25px; padding: 10px;
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); 
+    gap: 30px; padding: 10px;
 }
 .product-card {
-    background-color: #ffffff; border: 1px solid #EFEBE9; border-radius: 15px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.05); overflow: hidden; height: 380px; 
-    display: flex; flex-direction: column; justify-content: space-between; transition: transform 0.2s;
+    background-color: #ffffff; border: none; border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05); overflow: hidden; height: 420px; 
+    display: flex; flex-direction: column; justify-content: space-between; 
+    transition: transform 0.3s, box-shadow 0.3s;
 }
-.product-card:hover { transform: translateY(-5px); box-shadow: 0 8px 15px rgba(0,0,0,0.1); }
-.product-img-real { width: 100%; height: 200px; object-fit: cover; border-bottom: 1px solid #f0f0f0; }
-.product-card h4 { margin: 15px 0 5px 0; font-size: 1.1rem; color: #5D4037; font-weight: 600; text-align: center; }
-.product-card .price { color: #8D6E63; font-size: 1.1rem; margin-bottom: 10px; text-align: center; font-weight: bold; }
-.product-actions { padding: 10px 15px 20px 15px; display: flex; gap: 10px; }
+.product-card:hover { transform: translateY(-8px); box-shadow: 0 15px 30px rgba(0,0,0,0.1); }
+.product-img-real { width: 100%; height: 220px; object-fit: cover; border-bottom: 1px solid #f9f9f9; }
+.product-card h4 { margin: 15px 0 5px 0; font-size: 1.2rem; color: #4E342E; font-weight: 700; }
+.product-card .price { color: #D4AF37; font-size: 1.2rem; margin-bottom: 15px; font-weight: bold; }
+.product-actions { padding: 0 20px 25px 20px; display: flex; gap: 10px; }
 .btn-action {
-    flex: 1; height: 40px; border: 1px solid #6D4C41; background: #fff;
-    border-radius: 8px; cursor: pointer; font-family: 'Kanit', sans-serif;
-    color: #6D4C41; transition: all 0.2s; font-size: 0.95rem; 
+    flex: 1; height: 40px; 
+    border: 1px solid #D4AF37; background: #fff; border-radius: 50px;
+    font-family: 'Maitree', serif; color: #D4AF37; font-weight: 600;
+    transition: all 0.3s; font-size: 0.95rem; cursor: pointer;
 }
-.btn-action:hover { background-color: #6D4C41; color: #fff; }
+.btn-action:hover { background-color: #D4AF37; color: #fff; }
 
 /* ==========================================
    6. ดีไซน์หน้าวิธีการสั่งซื้อ
    ========================================== */
 .howto-section-main {
-    padding: 40px 20px; background-color: rgba(255, 255, 255, 0.4);
-    border-radius: 15px; margin-top: 20px; min-height: 500px;
+    padding: 50px 20px; background-color: #fff;
+    border-radius: 20px; margin: 40px auto; max-width: 900px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.05);
 }
 .howto-container { max-width: 800px; margin: 0 auto; }
 .main-steps { list-style: none; padding: 0; text-align: left; }
 .main-steps li {
-    background-color: #fff; margin-bottom: 15px; padding: 20px;
-    border-radius: 10px; border: 1px solid #EFEBE9;
+    background-color: #FDFBF7; border: 1px solid #F0E6D2;
+    margin-bottom: 15px; padding: 20px; border-radius: 10px;
     display: flex; align-items: center; box-shadow: 0 2px 5px rgba(0,0,0,0.05);
 }
 .step-badge {
-    background-color: #6D4C41; color: #fff; width: 40px; height: 40px;
+    background-color: #D4AF37; color: #fff; width: 40px; height: 40px;
     border-radius: 50%; display: flex; align-items: center; justify-content: center;
     font-size: 1.2rem; font-weight: bold; margin-right: 20px; flex-shrink: 0;
 }
 .step-desc { font-size: 1.1rem; color: #4E342E; }
-.main-bank-info { margin-top: 40px; background-color: #fff; padding: 30px; border-radius: 15px; border: 2px dashed #8D6E63; }
+.main-bank-info { margin-top: 40px; background-color: #fff; padding: 30px; border-radius: 15px; border: 2px dashed #D4AF37; }
 .acc-number { font-size: 1.8rem; color: #06C755; font-weight: bold; margin: 10px 0; }
 
 /* ==========================================
    7. การแสดงผลบนมือถือ (Mobile) & Sticky Footer
    ========================================== */
 @media (max-width: 768px) {
-    body { padding-bottom: 100px; }
+    body { padding-bottom: 80px; }
     
-    .top-row { flex-direction: column; padding-bottom: 10px; }
-    .logo { width: 100%; margin-bottom: 10px; }
+    .top-row { flex-direction: column; padding-bottom: 15px; }
+    .logo { height: 70px; margin-bottom: 10px; }
     .contact-info { width: 100%; }
-    .slider-frame { max-width: 90%; height: 250px; }
-    .info-bar { flex-direction: column; }
-    .info-col { width: 100%; margin-bottom: 15px; }
-    .product-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; padding: 5px; }
-    .product-card { height: auto; min-height: 280px; }
-    .product-img-real { height: 140px; }
+    .nav-menu { gap: 20px; padding: 10px; font-size: 1rem; }
+    .slider-frame { max-width: 95%; height: 250px; }
+    .info-bar { flex-direction: column; gap: 15px; }
+    .product-grid { grid-template-columns: repeat(2, 1fr); gap: 15px; padding: 5px; }
+    .product-card { height: auto; min-height: 300px; }
+    .product-img-real { height: 150px; }
     .product-actions { flex-direction: column; gap: 5px; padding: 10px; }
-    .btn-action { font-size: 0.9rem; height: 35px; }
+    .btn-action { font-size: 0.8rem; height: 35px; padding: 0 5px; }
 
     /* [Mobile Sticky Footer] */
     .contact-info#mobileStickyFooter {
-        position: fixed; 
-        bottom: 0; 
-        left: 0; 
-        top: auto; 
-        width: 100%;
-        background-color: #ffffff; 
-        flex-direction: row; 
-        padding: 10px 15px;
-        box-shadow: 0 -4px 10px rgba(0,0,0,0.1); 
-        z-index: 2000;
-        gap: 15px; 
-        box-sizing: border-box;
-        
-        /* เริ่มต้น: แสดงอยู่เสมอ (Y=0) */
-        transform: translateY(0); 
-        transition: transform 0.3s ease-in-out;
+        position: fixed; bottom: 0; left: 0; width: 100%;
+        background-color: #fff; flex-direction: row; 
+        padding: 10px 15px; box-shadow: 0 -4px 15px rgba(0,0,0,0.1); 
+        z-index: 2000; gap: 10px; box-sizing: border-box;
+        transform: translateY(0); transition: transform 0.3s ease-in-out;
     }
-    
-    /* Class สำหรับซ่อนเมื่อเลื่อนขึ้น */
-    .contact-info#mobileStickyFooter.force-hide {
-        transform: translateY(100%);
-    }
+    .contact-info#mobileStickyFooter.force-hide { transform: translateY(100%); }
+    .btn-contact { flex: 1; border-radius: 8px; font-size: 0.9rem; box-shadow: none; }
 }
 
 /* ==========================================
    8. Modal Styles
    ========================================== */
-.modal { display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.6); overflow: auto; padding-top: 50px; backdrop-filter: blur(3px); }
-.modal-content { background-color: #fff; margin: auto; width: 80%; max-width: 800px; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.3); position: relative; overflow: hidden; animation: slideDown 0.3s ease-out; }
-@keyframes slideDown { from { transform: translateY(-50px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
-.close-btn { position: absolute; top: 10px; right: 20px; color: #aaa; font-size: 28px; font-weight: bold; cursor: pointer; z-index: 10; }
-.close-btn:hover { color: #6D4C41; }
+.modal { display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.7); backdrop-filter: blur(5px); overflow: auto; padding-top: 50px; }
+.modal-content { background-color: #fff; margin: auto; width: 90%; max-width: 850px; border-radius: 15px; box-shadow: 0 20px 50px rgba(0,0,0,0.3); position: relative; overflow: hidden; animation: slideDown 0.3s ease-out; }
+@keyframes slideDown { from { transform: translateY(20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+.close-btn { position: absolute; top: 15px; right: 25px; color: #888; font-size: 30px; font-weight: bold; cursor: pointer; z-index: 10; transition: color 0.2s; }
+.close-btn:hover { color: #D4AF37; }
 .modal-body { display: flex; flex-wrap: wrap; }
-.modal-left { flex: 1; min-width: 300px; background-color: #f9f9f9; display: flex; align-items: center; justify-content: center; }
-.modal-left img { width: 100%; height: 100%; max-height: 450px; object-fit: cover; }
-.modal-right { flex: 1; padding: 30px; text-align: left; min-width: 300px; display: flex; flex-direction: column; justify-content: flex-start; }
+.modal-left { flex: 1; min-width: 300px; background-color: #f9f9f9; display: flex; align-items: center; justify-content: center; padding: 20px; }
+.modal-left img { width: 100%; height: auto; max-height: 400px; object-fit: contain; border-radius: 8px; }
+.modal-right { flex: 1; padding: 40px; text-align: left; min-width: 300px; display: flex; flex-direction: column; justify-content: flex-start; }
 .modal-right h2 { color: #4E342E; margin-top: 0; font-size: 1.8rem; }
 .modal-price { color: #06C755; font-size: 1.5rem; font-weight: bold; margin: 10px 0; }
 .modal-desc { color: #5D4037; line-height: 1.6; margin-bottom: 20px; }
 .btn-confirm-buy { background-color: #6D4C41; color: white; padding: 12px; border: none; font-size: 1.1rem; }
 .btn-confirm-buy:hover { background-color: #4E342E; }
-.modal-tabs { display: flex; border-bottom: 2px solid #EFEBE9; margin-bottom: 20px; }
-.tab-btn { flex: 1; padding: 10px; background: none; border: none; font-family: 'Kanit', sans-serif; font-size: 1.1rem; cursor: pointer; color: #A1887F; transition: all 0.3s; border-bottom: 3px solid transparent; }
-.tab-btn.active { color: #6D4C41; font-weight: bold; border-bottom: 3px solid #6D4C41; }
+.modal-tabs { display: flex; border-bottom: 2px solid #eee; margin-bottom: 25px; }
+.tab-btn { flex: 1; padding: 12px; background: none; border: none; font-family: 'Maitree', serif; font-size: 1.1rem; cursor: pointer; color: #aaa; border-bottom: 3px solid transparent; font-weight: 600; }
+.tab-btn.active { color: #D4AF37; border-bottom: 3px solid #D4AF37; }
 .tab-btn:hover { background-color: #FAFAFA; }
 .order-steps { list-style: none; padding: 0; margin: 0; text-align: left; color: #5D4037; font-size: 1rem; }
-.order-steps li { margin-bottom: 12px; padding: 10px; background-color: #FDFBF7; border-radius: 8px; border-left: 4px solid #8D6E63; }
+.order-steps li { margin-bottom: 10px; padding: 15px; background-color: #FDFBF7; border-radius: 8px; border-left: 4px solid #D4AF37; border: 1px solid #F0E6D2; }
 .bank-info { background-color: #EFEBE9; padding: 15px; border-radius: 10px; margin: 20px 0; text-align: center; color: #4E342E; }
 .bank-info p { margin: 5px 0; }
 @media (max-width: 768px) {

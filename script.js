@@ -30,7 +30,9 @@ async function fetchProducts() {
                     <p class="price">${item.price} บาท</p>
                     <div class="product-actions">
                         <button class="btn-action" onclick="openModal(${index})">ดูรายละเอียด</button>
-                        <button class="btn-action">สั่งซื้อ</button>
+                        <a href="https://line.me/ti/p/~@charoenwreath" target="_blank" class="btn-action" style="display:flex; align-items:center; justify-content:center; text-decoration:none;">
+                            สั่งซื้อแอดไลน์
+                        </a>
                     </div>
                 </div>
             `;
@@ -51,9 +53,19 @@ const modal = document.getElementById("productModal");
 function openModal(index) {
     const product = allProducts[index];
     if (!product) return;
+    
     document.getElementById('modal-img').src = product.image;
     document.getElementById('modal-name').innerText = product.name;
+    
+    // [แก้ไข] ดึงรหัสสินค้ามาแสดง (ถ้าไม่มีใน Sheet จะสร้าง P-00x ให้)
+    const productId = product.id ? product.id : `P-${(index + 1).toString().padStart(3, '0')}`;
+    const idElement = document.getElementById('modal-id');
+    if (idElement) {
+        idElement.innerText = productId;
+    }
+
     document.getElementById('modal-price').innerText = product.price + " บาท";
+    
     switchTab('details');
     modal.style.display = "block";
 }
