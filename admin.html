@@ -6,46 +6,12 @@
     <title>หลังบ้าน - เพิ่มสินค้า</title>
     <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
-        body { 
-            font-family: 'Kanit', sans-serif; 
-            background-color: #f4f4f4; 
-            display: flex; 
-            justify-content: center; 
-            align-items: center; 
-            height: 100vh; 
-            margin: 0; 
-        }
-        .admin-box {
-            background: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            width: 100%;
-            max-width: 400px;
-            text-align: center;
-        }
+        body { font-family: 'Kanit', sans-serif; background-color: #f4f4f4; display: flex; justify-content: center; align-items: center; min-height: 100vh; margin: 0; padding: 20px; box-sizing: border-box; }
+        .admin-box { background: white; padding: 30px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); width: 100%; max-width: 400px; text-align: center; }
         h2 { color: #6D4C41; margin-bottom: 20px; }
-        input {
-            width: 100%;
-            padding: 12px;
-            margin: 8px 0;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            box-sizing: border-box;
-            font-family: 'Kanit', sans-serif;
-        }
-        button {
-            width: 100%;
-            padding: 12px;
-            background-color: #6D4C41;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            font-size: 1rem;
-            cursor: pointer;
-            margin-top: 10px;
-            font-family: 'Kanit', sans-serif;
-        }
+        input, textarea { width: 100%; padding: 12px; margin: 8px 0; border: 1px solid #ddd; border-radius: 5px; box-sizing: border-box; font-family: 'Kanit', sans-serif; font-size: 0.95rem; }
+        textarea { resize: vertical; min-height: 80px; }
+        button { width: 100%; padding: 12px; background-color: #6D4C41; color: white; border: none; border-radius: 5px; font-size: 1rem; cursor: pointer; margin-top: 10px; font-family: 'Kanit', sans-serif; transition: background 0.3s; }
         button:hover { background-color: #5D4037; }
         .status { margin-top: 15px; font-size: 0.9rem; }
         .success { color: green; }
@@ -53,15 +19,15 @@
     </style>
 </head>
 <body>
-
     <div class="admin-box">
         <h2>🌸 เพิ่มสินค้าใหม่</h2>
         <form id="productForm">
             <input type="text" name="id" placeholder="รหัสสินค้า (เช่น P-001)" required>
-            
             <input type="text" name="name" placeholder="ชื่อสินค้า (เช่น ช่อกุหลาบ)" required>
             <input type="number" name="price" placeholder="ราคา (ตัวเลขเท่านั้น)" required>
             <input type="url" name="image" placeholder="ลิงก์รูปภาพ (URL)" required>
+            
+            <textarea name="detail" placeholder="รายละเอียดสินค้าเพิ่มเติม... (เช่น ดอกไม้สดใหม่ จัดส่งไว)" rows="3"></textarea>
             
             <button type="submit" id="submitBtn">บันทึกสินค้า</button>
         </form>
@@ -71,9 +37,7 @@
     </div>
 
     <script>
-        // ----------------------------------------------------
-        // ใส่ URL Web App ของคุณที่นี่ (อันเดิมได้เลยไม่ต้อง Deploy ใหม่)
-        // ----------------------------------------------------
+        // ใส่ URL Web App ของคุณที่นี่
         const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbyxMxOiXj40tCHf6ewv7CaNp0i56Sro0wYe8WVtT3WfY92xaCf2YqobfShs6UMsvb4yTQ/exec"; 
 
         const form = document.getElementById('productForm');
@@ -82,7 +46,6 @@
 
         form.addEventListener('submit', function(e) {
             e.preventDefault();
-
             btn.disabled = true;
             btn.innerText = "กำลังส่งข้อมูล...";
             statusMsg.innerText = "";
@@ -96,19 +59,18 @@
             .then(response => {
                 statusMsg.className = "status success";
                 statusMsg.innerText = "✅ บันทึกสำเร็จ! ข้อมูลเข้า Sheet แล้ว";
-                form.reset(); // ล้างช่องกรอก
+                form.reset();
                 btn.disabled = false;
                 btn.innerText = "บันทึกสินค้า";
             })
             .catch(error => {
                 statusMsg.className = "status error";
-                statusMsg.innerText = "❌ เกิดข้อผิดพลาด! ลองใหม่อีกครั้ง";
+                statusMsg.innerText = "❌ เกิดข้อผิดพลาด!";
                 console.error(error);
                 btn.disabled = false;
                 btn.innerText = "บันทึกสินค้า";
             });
         });
     </script>
-
 </body>
 </html>

@@ -30,9 +30,7 @@ async function fetchProducts() {
                     <p class="price">${item.price} บาท</p>
                     <div class="product-actions">
                         <button class="btn-action" onclick="openModal(${index})">ดูรายละเอียด</button>
-                        <a href="https://line.me/ti/p/~@charoenwreath" target="_blank" class="btn-action" style="display:flex; align-items:center; justify-content:center; text-decoration:none;">
-                            สั่งซื้อแอดไลน์
-                        </a>
+                        <a href="https://line.me/ti/p/~@charoenwreath" target="_blank" class="btn-action" style="display:flex; align-items:center; justify-content:center; text-decoration:none;">สั่งซื้อแอดไลน์</a>
                     </div>
                 </div>
             `;
@@ -57,15 +55,21 @@ function openModal(index) {
     document.getElementById('modal-img').src = product.image;
     document.getElementById('modal-name').innerText = product.name;
     
-    // [แก้ไข] ดึงรหัสสินค้ามาแสดง (ถ้าไม่มีใน Sheet จะสร้าง P-00x ให้)
+    // ดึงรหัสสินค้า
     const productId = product.id ? product.id : `P-${(index + 1).toString().padStart(3, '0')}`;
     const idElement = document.getElementById('modal-id');
-    if (idElement) {
-        idElement.innerText = productId;
-    }
+    if(idElement) idElement.innerText = productId;
 
     document.getElementById('modal-price').innerText = product.price + " บาท";
     
+    // ดึงรายละเอียด (ถ้าไม่มีใช้ Default)
+    // รองรับทั้ง detail (ตัวเล็ก) และ Detail (ตัวใหญ่) จาก Sheet
+    const rawDetail = product.detail || product.Detail || "";
+    const defaultDesc = "ดอกไม้สดใหม่ จัดส่งรวดเร็ว สวยงามตามความต้องการ";
+    let detailText = rawDetail ? rawDetail.replace(/\n/g, "<br>") : defaultDesc;
+    
+    document.getElementById('modal-desc').innerHTML = detailText;
+
     switchTab('details');
     modal.style.display = "block";
 }
@@ -100,7 +104,7 @@ window.onclick = function(event) {
 }
 
 // ==========================================
-// ส่วนที่ 4: Sticky Footer (Logic: ลง=แสดง, ขึ้น=ซ่อน)
+// ส่วนที่ 4: Sticky Footer Logic (ลง=แสดง, ขึ้น=ซ่อน)
 // ==========================================
 let lastScrollTop = 0;
 const footer = document.getElementById('mobileStickyFooter');
@@ -110,11 +114,11 @@ window.addEventListener('scroll', function() {
         let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
         if (scrollTop < 0) scrollTop = 0; 
 
-        // เงื่อนไข: เลื่อนลง (Scroll Down) -> แสดง (Remove 'force-hide')
+        // เลื่อนลง -> แสดง (Remove class force-hide)
         if (scrollTop > lastScrollTop) {
             footer.classList.remove('force-hide');
         } 
-        // เงื่อนไข: เลื่อนขึ้น (Scroll Up) -> ซ่อน (Add 'force-hide')
+        // เลื่อนขึ้น -> ซ่อน (Add class force-hide)
         else {
             footer.classList.add('force-hide');
         }
