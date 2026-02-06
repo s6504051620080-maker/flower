@@ -2,16 +2,15 @@
    1. ตั้งค่าพื้นฐาน (Body & Container)
    ========================================== */
 body {
-    font-family: 'Maitree', serif;
+    /* [แก้ไข] เปลี่ยนฟอนต์หลักเป็น Thonburi */
+    font-family: "Thonburi", "Helvetica Neue", Helvetica, Arial, sans-serif;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     text-align: center;
     background-color: #F9F5EB;
     
-    /* ลดระยะห่างด้านบนลง เพราะหัวเว็บเล็กลงแล้ว */
     padding-top: 120px; 
-    
     padding-bottom: 0;
     color: #5D4037; 
 }
@@ -26,13 +25,12 @@ body {
 }
 
 /* ==========================================
-   2. ส่วนหัว (Header) - ปรับให้เล็กลง (Compact)
+   2. ส่วนหัว (Header)
    ========================================== */
 header {
     position: fixed; top: 0; left: 0; width: 100%; z-index: 1000; 
     background-color: #171B0E; 
     
-    /* พื้นหลังลายเส้นสีทอง */
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1600 400' preserveAspectRatio='none'%3E%3Cdefs%3E%3ClinearGradient id='gold-line' x1='0%25' y1='0%25' x2='100%25' y2='0%25'%3E%3Cstop offset='0%25' stop-color='%238B6914' stop-opacity='0'/%3E%3Cstop offset='50%25' stop-color='%23D4AF37' stop-opacity='0.6'/%3E%3Cstop offset='100%25' stop-color='%238B6914' stop-opacity='0'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cg fill='none' stroke='url(%23gold-line)' stroke-width='0.8' opacity='0.8'%3E%3Cpath d='M0,200 C200,50 400,350 600,200 C800,50 1000,350 1200,200 C1400,50 1600,350 1800,200'/%3E%3Cpath d='M0,210 C210,60 410,360 610,210 C810,60 1010,360 1210,210 C1410,60 1610,360 1810,210'/%3E%3Cpath d='M0,190 C190,40 390,340 590,190 C790,40 990,340 1190,190 C1390,40 1590,340 1790,190'/%3E%3Cpath d='M0,220 C220,70 420,370 620,220 C820,70 1020,370 1220,220'/%3E%3Cpath d='M0,180 C180,30 380,330 580,180 C780,30 980,330 1180,180'/%3E%3Cpath d='M-200,100 Q200,500 600,100 T1400,100' opacity='0.3' stroke-width='1.5'/%3E%3Cpath d='M-180,110 Q220,510 620,110 T1420,110' opacity='0.2' stroke-width='1.5'/%3E%3C/g%3E%3C/svg%3E");
     background-size: cover;
     background-position: center;
@@ -74,7 +72,11 @@ header {
     display: flex; align-items: center; justify-content: center;
     min-height: 38px; 
     box-sizing: border-box; 
-    font-family: 'Maitree', serif; font-size: 0.95rem; font-weight: 600;
+    
+    /* [แก้ไข] เปลี่ยนฟอนต์ปุ่ม */
+    font-family: "Thonburi", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 0.95rem; font-weight: 600;
+    
     cursor: pointer; width: 100%; 
     text-decoration: none; color: white; 
     transition: all 0.3s ease;
@@ -134,11 +136,11 @@ header {
     position: absolute;
     top: -10px;
     left: 20px;
-    font-family: serif;
+    font-family: serif; /* เครื่องหมายคำพูดใช้ serif เหมือนเดิมเพื่อความสวยงาม */
 }
 
 /* ==========================================
-   4. ตกแต่งหัวข้อ & สไลด์ (แก้ไข: วงรีแนวตั้ง)
+   4. ตกแต่งหัวข้อ & สไลด์ (วงรีแนวตั้ง)
    ========================================== */
 h2, h3 {
     color: #4E342E; font-weight: 700; margin-bottom: 30px;
@@ -154,8 +156,6 @@ h2::after, h3::after {
 .slider-frame {
     width: 100%; max-width: 900px; height: 450px; margin: 0 auto;
     overflow: hidden; 
-    
-    /* เอากล่องพื้นหลังสีขาวออก */
     background-color: transparent; 
     border: none; 
     box-shadow: none; 
@@ -170,25 +170,18 @@ h2::after, h3::after {
     width: 10%; height: 100%; 
     padding: 0 10px; 
     box-sizing: border-box;
-    
-    /* [เพิ่ม] จัดให้รูปอยู่กึ่งกลางช่อง เพื่อให้รูปแนวตั้งลอยสวยๆ */
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-/* [แก้ไข] ทำเป็นวงรีแนวตั้ง โดยการบีบความกว้างให้น้อยกว่าความสูง */
+/* รูปสไลด์: วงรีแนวตั้ง */
 .slide-item img { 
-    width: 280px;  /* [สำคัญ] กำหนดความกว้างคงที่ (น้อยกว่าความสูง 450px) */
-    height: 100%;  /* สูงเต็ม 450px */
-    
-    /* สี่เหลี่ยมผืนผ้าแนวตั้ง + radius 50% = วงรีแนวตั้ง */
+    width: 280px; 
+    height: 100%; 
     border-radius: 50%; 
-    
     object-fit: cover; 
     object-position: center;
-    
-    /* เพิ่มเงาและขอบ */
     box-shadow: 0 8px 20px rgba(0,0,0,0.25);
     border: 3px solid #fff; 
 }
@@ -230,6 +223,7 @@ h2::after, h3::after {
 }
 .product-card:hover { transform: translateY(-8px); box-shadow: 0 15px 30px rgba(0,0,0,0.1); }
 
+/* รูปสินค้า: เต็มใบ (Contain) */
 .product-img-real { 
     width: 100%; 
     height: 220px; 
@@ -243,7 +237,11 @@ h2::after, h3::after {
 .btn-action {
     flex: 1; height: 40px; 
     border: 1px solid #D4AF37; background: #fff; border-radius: 50px;
-    font-family: 'Maitree', serif; color: #D4AF37; font-weight: 600;
+    
+    /* [แก้ไข] เปลี่ยนฟอนต์ปุ่ม */
+    font-family: "Thonburi", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #D4AF37; font-weight: 600;
+    
     transition: all 0.3s; font-size: 0.95rem; cursor: pointer;
 }
 .btn-action:hover { background-color: #D4AF37; color: #fff; }
@@ -273,7 +271,7 @@ h2::after, h3::after {
 .acc-number { font-size: 1.8rem; color: #06C755; font-weight: bold; margin: 10px 0; }
 
 /* ==========================================
-   7. การแสดงผลบนมือถือ (Mobile) & Sticky Footer
+   7. การแสดงผลบนมือถือ (Mobile)
    ========================================== */
 @media (max-width: 768px) {
     body { 
@@ -309,7 +307,7 @@ h2::after, h3::after {
     
     .slider-frame { max-width: 95%; height: 250px; }
     
-    /* [แก้ไข] ในมือถือก็ต้องเป็นวงรีแนวตั้ง (ปรับขนาดเล็กลง) */
+    /* รูปสไลด์มือถือ: วงรีแนวตั้ง (ขนาดเล็ก) */
     .slide-item img { width: 160px; } 
 
     .info-bar { flex-direction: column; gap: 15px; }
@@ -348,9 +346,16 @@ h2::after, h3::after {
 .btn-confirm-buy { background-color: #6D4C41; color: white; padding: 12px; border: none; font-size: 1.1rem; }
 .btn-confirm-buy:hover { background-color: #4E342E; }
 .modal-tabs { display: flex; border-bottom: 2px solid #eee; margin-bottom: 25px; }
-.tab-btn { flex: 1; padding: 12px; background: none; border: none; font-family: 'Maitree', serif; font-size: 1.1rem; cursor: pointer; color: #aaa; border-bottom: 3px solid transparent; font-weight: 600; }
+
+.tab-btn { 
+    flex: 1; padding: 12px; background: none; border: none; 
+    /* [แก้ไข] เปลี่ยนฟอนต์แท็บ */
+    font-family: "Thonburi", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 1.1rem; cursor: pointer; color: #aaa; border-bottom: 3px solid transparent; font-weight: 600; 
+}
 .tab-btn.active { color: #D4AF37; border-bottom: 3px solid #D4AF37; }
 .tab-btn:hover { background-color: #FAFAFA; }
+
 .order-steps { list-style: none; padding: 0; margin: 0; text-align: left; color: #5D4037; font-size: 1rem; }
 .order-steps li { margin-bottom: 10px; padding: 15px; background-color: #FDFBF7; border-radius: 8px; border-left: 4px solid #D4AF37; border: 1px solid #F0E6D2; }
 .bank-info { background-color: #EFEBE9; padding: 15px; border-radius: 10px; margin: 20px 0; text-align: center; color: #4E342E; }
